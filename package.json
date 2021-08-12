@@ -1,0 +1,20 @@
+{
+	"name": "fusepongtest",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"workspaces": [
+		"client",
+		"server"
+	],
+	"scripts": {
+		"serverDev": "npm run dev --workspace=server",
+		"serverStart": "npm run start --workspace=server",
+		"clientDev": "npm run dev --workspace=client",
+		"clientBuild": "npm run  build --workspace=client",
+		"clientServe": "npm run serve --workspace=client"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
