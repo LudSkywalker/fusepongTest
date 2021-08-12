@@ -1,0 +1,20 @@
+GET http://localhost:5000/auth/login
+
+###
+GET http://localhost:5000/auth/companies
+
+###
+GET http://localhost:5000/auth/test
+
+###
+
+
+POST  http://localhost:5000/auth/login
+content-type: application/json
+
+{
+    "correo":"admin@gmail.com",
+    "password": "lud"
+}
+
+###

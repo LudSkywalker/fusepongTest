@@ -14,7 +14,7 @@
 		"clientBuild": "npm run  build --workspace=client",
 		"clientServe": "npm run serve --workspace=client"
 	},
+	"author": "Luding Castañeda ('Lud Skywalker')",
 	"keywords": [],
-	"author": "",
 	"license": "ISC"
 }

@@ -1,9 +1,10 @@
 if (process.env.NODE_ENV != "production") {
-	require("dotenv").config();
+	require("dotenv").config({ path: "../.env" });
 }
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+require("./db")
 
 //Instans of server
 const app = express();
@@ -19,9 +20,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //Implement of routes
-// app.use("/api", require("./routes/products"));
-// app.use("/api/categories", require("./routes/categories"));
-// app.use("/api/suppliers", require("./routes/suppliers"));
+app.use("/auth", require("./routes/auth"));
 
 //Run the server in the env port
 (async () => {
