@@ -1,20 +1,110 @@
-GET http://localhost:5000/auth/login
-
-###
+###############
+# Auth routes #
+###############
 GET http://localhost:5000/auth/companies
-
 ###
-GET http://localhost:5000/auth/test
+POST  http://localhost:5000/auth/singup
+content-type: application/json
 
+{
+    "nombre":"ludis",
+	"correo":"adminLud@gmail.com",
+	"password":"ludis",
+	"compañia":"611587c20f55fef5d479822e"
+}
 ###
-
-
 POST  http://localhost:5000/auth/login
 content-type: application/json
 
 {
-    "correo":"admin@gmail.com",
-    "password": "lud"
+   "correo":"adminLud@gmail.com",
+	"password":"ludis"
 }
+##############
+# Api routes #
+##############
+@jwt =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTY3YWE3NDUyNTYwMzM5NzczYzEwOSIsIm5vbWJyZSI6Imx1ZGlzIiwiY29tIjoiNjExNTg3YzIwZjU1ZmVmNWQ0Nzk4MjJlIiwiaWF0IjoxNjI4ODk3NjA0LCJleHAiOjE2Mjg5NTUyMDR9.10yxCQ_OoAl7qL5OWknPdVq1lUSLN5osbIME5JmqDzg
+###Tickets routes
+###
+GET http://localhost:5000/api
+Authorization: Bearer {{jwt}}
 
 ###
+GET http://localhost:5000/api/tickets
+Authorization: Bearer {{jwt}}
+content-type: application/json
+
+{
+	"hdUsuario":"6115c8872ddef5c5b6bcfe6d"
+}
+###
+GET http://localhost:5000/api/tickets/6115b38b215dda8daab86778
+Authorization: Bearer {{jwt}}
+###
+POST  http://localhost:5000/api/ticket
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+	"titulo":"peraDesings funcionalidades",
+	"descripcion":"Desarrollo de las funcionalidades del programa de diseño para el perapod",
+	"estado":"Activo",
+	"hdUsuario":"6115c8872ddef5c5b6bcfe6d"
+}
+###
+DELETE  http://localhost:5000/api/ticket
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+	"id":"6115f95d31ce745ee48dd8df"
+}
+###
+PUT  http://localhost:5000/api/ticket
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+	"id":"6115f95d31ce745ee48dd8df",
+	"titulo":"peraDesings funcionalidades",
+	"descripcion":"Desarrollo de las funcionalidades del programa de diseño para el nuevo perapod",
+	"estado":"En Proceso"
+}
+###HDUsers routes
+###
+GET http://localhost:5000/api/hdusers
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+
+}
+###
+POST  http://localhost:5000/api/hduser
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+	"titulo":"Integracion del microprocesador .L1 en el perapot",
+	"descripcion":"Necesito una perapot tan potente como su peramat con procesasdor .L1",
+	"compañia":"6115b38b215dda8daab86778"
+}
+###
+DELETE  http://localhost:5000/api/hduser
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+	"id":"6116746e36ca272429ae1bb8"
+}
+###
+PUT  http://localhost:5000/api/hduser
+content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+	"id":"6116746e36ca272429ae1bb8",
+	"titulo":"Integracion .L1 en perapot",
+	"descripcion":"Necesito una perapot tan potente como su peramat con procesasdor .L1",
+	"estado":"En Proceso"
+}
