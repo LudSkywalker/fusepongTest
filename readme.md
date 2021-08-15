@@ -9,6 +9,6 @@ Luego correr los comandos:
 -"npm serverStart" para poner a andar el servidor
 -"npm clientServe" para poner a andar el cliente
 
-##Probarla
+## Probarla
 la aplicacion puede ser probada en el siguiente enlace, [fusepong-test](https://fusepong-test.vercel.app/)
 
