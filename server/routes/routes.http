@@ -1,9 +1,10 @@
+@host =http://localhost:4000
 ###############
 # Auth routes #
 ###############
-GET http://localhost:5000/auth/companies
+POST {{host}}/auth/companies
 ###
-POST  http://localhost:5000/auth/singup
+POST  {{host}}/auth/singup
 content-type: application/json
 
 {
@@ -13,7 +14,7 @@ content-type: application/json
 	"compañia":"611587c20f55fef5d479822e"
 }
 ###
-POST  http://localhost:5000/auth/login
+POST  {{host}}/auth/login
 content-type: application/json
 
 {
@@ -23,36 +24,36 @@ content-type: application/json
 ##############
 # Api routes #
 ##############
-@jwt =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTY3YWE3NDUyNTYwMzM5NzczYzEwOSIsIm5vbWJyZSI6Imx1ZGlzIiwiY29tIjoiNjExNTg3YzIwZjU1ZmVmNWQ0Nzk4MjJlIiwiaWF0IjoxNjI4ODk3NjA0LCJleHAiOjE2Mjg5NTUyMDR9.10yxCQ_OoAl7qL5OWknPdVq1lUSLN5osbIME5JmqDzg
+@jwt =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTdkMTlmNzM4N2JiNzIxN2YwNmUwNSIsIm5vbWJyZSI6Ikx1ZCIsImNvbSI6IjYxMTViMzhiMjE1ZGRhOGRhYWI4Njc3OCIsImlhdCI6MTYyOTAzNTQ2OSwiZXhwIjoxNjI5MDkzMDY5fQ.iy5JkUL7e6v76tP3giDPJXwGCluxYI0ud2nA893ZzoA
 ###Tickets routes
 ###
-GET http://localhost:5000/api
+GET  {{host}}/api
 Authorization: Bearer {{jwt}}
 
 ###
-GET http://localhost:5000/api/tickets
+POST {{host}}/api/tickets
 Authorization: Bearer {{jwt}}
 content-type: application/json
 
 {
-	"hdUsuario":"6115c8872ddef5c5b6bcfe6d"
+	# "hdUsuario":"6115dda32b1305fdddb723ba"
 }
 ###
-GET http://localhost:5000/api/tickets/6115b38b215dda8daab86778
+POST  {{host}}/api/tickets/6115b38b215dda8daab86778
 Authorization: Bearer {{jwt}}
 ###
-POST  http://localhost:5000/api/ticket
+POST  {{host}}/api/ticket
 content-type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-	"titulo":"peraDesings funcionalidades",
+	"titulo":"PeraDesings funcionalidades",
 	"descripcion":"Desarrollo de las funcionalidades del programa de diseño para el perapod",
-	"estado":"Activo",
+	"estado":"activos",
 	"hdUsuario":"6115c8872ddef5c5b6bcfe6d"
 }
 ###
-DELETE  http://localhost:5000/api/ticket
+DELETE  {{host}}/api/ticket
 content-type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -60,19 +61,19 @@ Authorization: Bearer {{jwt}}
 	"id":"6115f95d31ce745ee48dd8df"
 }
 ###
-PUT  http://localhost:5000/api/ticket
+PUT  {{host}}/api/ticket
 content-type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-	"id":"6115f95d31ce745ee48dd8df",
-	"titulo":"peraDesings funcionalidades",
-	"descripcion":"Desarrollo de las funcionalidades del programa de diseño para el nuevo perapod",
-	"estado":"En Proceso"
+	 "id": "6115df59e4b2c005ccebeba9",
+    "titulo": "Rastreador animal",
+    "descripcion": "Implementacion en el gps del guacual donde va el animal con el servidor de entreagas",
+    "estado": "activos"
 }
 ###HDUsers routes
 ###
-GET http://localhost:5000/api/hdusers
+POST {{host}}/api/hdusers
 content-type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -80,7 +81,7 @@ Authorization: Bearer {{jwt}}
 
 }
 ###
-POST  http://localhost:5000/api/hduser
+POST  {{host}}/api/hduser
 content-type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -90,15 +91,15 @@ Authorization: Bearer {{jwt}}
 	"compañia":"6115b38b215dda8daab86778"
 }
 ###
-DELETE  http://localhost:5000/api/hduser
+DELETE  {{host}}/api/hduser
 content-type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-	"id":"6116746e36ca272429ae1bb8"
+	"id":"611938458bd860acabbc270f"
 }
 ###
-PUT  http://localhost:5000/api/hduser
+PUT  {{host}}/api/hduser
 content-type: application/json
 Authorization: Bearer {{jwt}}
 

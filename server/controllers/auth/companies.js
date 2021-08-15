@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 module.exports = async (req, res) => {
 	let companies = [];
 	try {
-		companies = await Companies.find();
+		companies = await Companies.find(req.body);
 		companies = companies.map((company) => {
 			let { _id: id, nombre, nit, telefono } = company.toJSON();
 			return { id, nombre, nit, telefono };

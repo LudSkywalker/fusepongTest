@@ -7,6 +7,6 @@ const auth = Router();
 
 auth.post("/singup", singup);
 auth.post("/login", login);
-auth.get("/companies", companies);
+auth.post("/companies", companies);
 
 module.exports = auth;

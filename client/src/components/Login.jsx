@@ -1,36 +1,47 @@
 import { useEffect } from "react";
-import { useLocation, Link } from "wouter";
-export const Login = ({ action, onmounted }) => {
-	const [_, setLocation] = useLocation();
+import { Link } from "wouter";
+import { host } from "../keys.json";
 
+export const Login = ({ action, onmounted, onunmounted }) => {
 	useEffect(() => {
-		onmounted.current.classList.remove("complete");
+		onmounted();
 		return () => {
-			onmounted.current.classList.add("complete");
+			onunmounted();
 		};
 	}, []);
 
 	const log = async (e) => {
 		e.preventDefault();
-		let correo = e.target.elements.correo;
-		let password = e.target.elements.password;
-		let response = await fetch("http://localhost:5000/auth/login", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				correo: correo.value,
-				password: password.value,
-			}),
-		});
-		let { token } = await response.json();
-		localStorage.setItem("JWT", token);
-		action(token);
-		correo.value = "";
-		password.value = "";
-		onmounted.current.classList.add("complete");
-		setLocation("/");
+		let inputCorreo = e.target.elements.correo;
+		let inputPassword = e.target.elements.password;
+		let { value: correo } = inputCorreo;
+		let { value: password } = inputPassword;
+		if (correo.length > 6 && password.length > 4) {
+			let response = await fetch(host+"/auth/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					correo,
+					password,
+				}),
+			});
+			if (response.ok) {
+				let { token } = await response.json();
+				await localStorage.setItem("JWT", token);
+				await action({ token });
+				inputCorreo.value = "";
+			} else if (response.status == 401) {
+				let { error } = await response.json();
+				alert(error);
+			}
+		} else {
+			alert(
+				"El correo y/o la contraseña son demasiado cortos, ingrese datos validos"
+			);
+		}
+		inputPassword.value = "";
 	};
 	return (
 		<form onSubmit={log}>
@@ -38,10 +49,26 @@ export const Login = ({ action, onmounted }) => {
 				<div className="header">
 					<h1>Ingreso</h1>
 				</div>
-				<label className="label-input">Correo electronico</label>
-				<input type="email" name="correo" className="input" placeholder="ejemplo@gmail.com"/>
-				<label className="label-input">Contraseña</label>
-				<input type="password" name="password" className="input" placeholder="secreto"/>
+				<div className="input-couple">
+					<label className="label-input">Correo electronico</label>
+					<input
+						type="email"
+						name="correo"
+						className="input"
+						placeholder="ejemplo@gmail.com"
+						required
+					/>
+				</div>
+				<div className="input-couple">
+					<label className="label-input">Contraseña</label>
+					<input
+						type="password"
+						name="password"
+						className="input"
+						placeholder="secreto"
+						required
+					/>
+				</div>
 				<button className="button">enviar</button>
 				<Link href="/singup">
 					<div className="link">

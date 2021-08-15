@@ -1,9 +1,8 @@
 const HDUsers = require("../../models/HDUsers");
 module.exports = async (req, res) => {
-	const { titulo, descripcion, estado, id } = req.body;
-	let update = { titulo, descripcion, estado };
+	const { id, ...update } = req.body;
 	try {
-		let hduser = await HDUsers.findByIdAndUpdate(id, update);
+		let hduser = await HDUsers.findByIdAndUpdate(id, update, { new: true });
 		if (hduser) {
 			res.send(hduser);
 		} else {

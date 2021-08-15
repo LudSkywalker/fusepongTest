@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
 			await newUser.save();
 
 			const token = jwt.sign(
-				{ id: newUser._id, nombre },
+				{ id: newUser._id, nombre, com: compañia },
 				process.env.JWT_SECRET,
 				{
 					expiresIn: 60 * 60 * 16,

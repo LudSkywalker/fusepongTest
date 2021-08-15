@@ -4,11 +4,11 @@ module.exports = async (req, res, next) => {
 	if (authorization) {
 		[_, token] = authorization.split(" ");
 		try {
-			let { id, nombre, compañia } = jwt.verify(
+			let { id, nombre, com } = jwt.verify(
 				token,
 				process.env.JWT_SECRET
 			);
-			req.user = { id, nombre, compañia };
+			req.user = { id, nombre, com };
 			next();
 		} catch (e) {
 			if (e.name == "TokenExpiredError") {

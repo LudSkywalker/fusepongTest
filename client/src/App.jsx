@@ -1,42 +1,26 @@
-import { Fragment, useState, useEffect, useRef } from "react";
-import { useLocation } from "wouter";
+import { Fragment, useState, useEffect } from "react";
 import { Routes } from "./components/Routes";
 export const App = () => {
-	//App states
-	const [jwt, setJwt] = useState(null);
-	const [_, setLocation] = useLocation();
-	const glass = useRef();
+	const [complete, setComplete] = useState("");
 
-	const isLog = async () => {
-		const jwtString = jwt || localStorage.getItem("JWT");
-		if (jwtString) {
-			let response = await fetch("http://localhost:5000/api", {
-				headers: {
-					Authorization: `Bearer ${jwtString}`,
-				},
-			});
-			if (response.ok) {
-				setJwt(jwtString);
-				glass.current.classList.add("complete");
-			} else {
-				setJwt(null);
-				localStorage.setItem("JWT", null);
-				// setLocation("/login");
-			}
-		} 
+	const addComplete = () => {
+		setComplete("complete");
 	};
-	useEffect(async () => {
-		console.log("mounted");
-		await isLog();
-		return () => {
-			setJwt(null);
-		};
-	}, []);
+	const removeComplete = () => {
+		setComplete("");
+	};
+
+	const glassActions = () => {
+		return [addComplete, removeComplete];
+	};
+	useEffect(() => {
+		return () => {};
+	}, [complete]);
 
 	return (
 		<Fragment>
-			<div className={"glass"} ref={glass}>
-				<Routes jwt={jwt} glass={glass} setJwt={setJwt} />
+			<div className={"glass " + complete}>
+				<Routes useGlass={glassActions} />
 			</div>
 			<div className="circle1"></div>
 			<div className="circle2"></div>

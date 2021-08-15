@@ -22,19 +22,19 @@ api.use(isAuth);
 
 //Test if auth is valid
 api.get("/", (req, res) => {
-    res.send({auth: true, mensage:"Tu jwt aún es válido"})
+	let { id, nombre, com } = req.user;
+	res.send({ auth: true, mensage: "Tu jwt aún es válido", id, nombre, com });
 });
 
-
 // Tickets routes
-api.get("/tickets", getTickets);
-api.get("/tickets/:company", getCompanyTickets);
+api.post("/tickets", getTickets);
+api.post("/tickets/:company", getCompanyTickets);
 api.post("/ticket", createTicket);
 api.delete("/ticket", deleteTicket);
 api.put("/ticket", updateTicket);
 
 // HDUsers routes
-api.get("/hdusers", getHDUsers);
+api.post("/hdusers", getHDUsers);
 api.post("/hduser", createHDUser);
 api.delete("/hduser", deleteHDUser);
 api.put("/hduser", updateHDUser);

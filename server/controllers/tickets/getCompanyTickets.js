@@ -3,7 +3,7 @@ module.exports = async (req, res) => {
 	const { company } = req.params;
 	let tickets;
 	try {
-		ticket = await Tickets.find({}).populate("hdUsuario");
+		tickets = await Tickets.find().populate("hdUsuario");
 		tickets = tickets.filter(
 			(ticket) =>
 				ticket.hdUsuario[0]?.compañia[0]?._id?.toString() == company

@@ -1,9 +1,8 @@
 const Tickets = require("../../models/Tickets");
 module.exports = async (req, res) => {
-	const { titulo, descripcion, estado, id } = req.body;
-	let update = { titulo, descripcion, estado };
+	const { id, ...update } = req.body;
 	try {
-		let ticket = await Tickets.findByIdAndUpdate(id, update);
+		let ticket = await Tickets.findByIdAndUpdate(id, update, { new: true });
 		if (ticket) {
 			res.send(ticket);
 		} else {
