@@ -5,4 +5,3 @@ client/dist
 client/dist-ssr
 client/*.local
 .env
-package-lock.json
