@@ -1,4 +1,5 @@
 {
+	"homepage":"https://yourusername.github.io/repository-name",
 	"name": "fusepongtest",
 	"version": "1.0.0",
 	"description": "",
@@ -8,6 +9,8 @@
 		"server"
 	],
 	"scripts": {
+		"predeploy":"npm run  build --workspace=client",
+		"deploy":"gh-pages -d build",
 		"serverDev": "npm run dev --workspace=server",
 		"serverStart": "npm run start --workspace=server",
 		"clientDev": "npm run dev --workspace=client",
@@ -16,5 +19,8 @@
 	},
 	"author": "Luding Castañeda ('Lud Skywalker')",
 	"keywords": [],
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"gh-pages": "^3.2.3"
+	}
 }
