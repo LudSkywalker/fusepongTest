@@ -251,7 +251,7 @@ textarea {
 }
 .input-couple {
 	display: grid;
-	grid-template-rows: repeat(5, 1fr);
+	grid-template-rows: repeat(2, 1fr);
 }
 .input-couple .input {
 	grid-row: 2/-1;
