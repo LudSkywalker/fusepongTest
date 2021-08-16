@@ -6,7 +6,7 @@ export const Hduser = ({ info, title, where, jwt, del }) => {
 	const [_, setLocation] = useLocation();
 	const [hdu, setHdu] = useState([]);
 	const deleteHdu = async (id) => {
-		if (confirm("Esta seguro que desea eliminiar la Historia de Usuario")) {
+		if (confirm("Está seguro que desea eliminar la Historia de Usuario")) {
 			let response = await fetch(host + del, {
 				method: "DELETE",
 				headers: {

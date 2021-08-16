@@ -61,7 +61,7 @@ export const Edit = ({ info, title, jwt, edit }) => {
 			</div>
 			<div className="button-list form-content">
 				<div className="input-couple">
-					<label className="label-input">Titulo</label>
+					<label className="label-input">Título</label>
 					<textarea
 						name="titulo"
 						className="input"
@@ -70,7 +70,7 @@ export const Edit = ({ info, title, jwt, edit }) => {
 					/>
 				</div>
 				<div className="input-couple">
-					<label className="label-input">Descripcion</label>
+					<label className="label-input">Descripción</label>
 					<textarea
 						name="descripcion"
 						className="input"
@@ -79,7 +79,7 @@ export const Edit = ({ info, title, jwt, edit }) => {
 					/>
 				</div>
 				<button className="button" type="submit">
-					enviar
+					Enviar
 				</button>
 			</div>
 		</form>

@@ -118,16 +118,16 @@ export const Create = ({ info, title, jwt, ticket, where }) => {
 			</div>
 			<div className="button-list form-content">
 				<div className="input-couple">
-					<label className="label-input">Titulo</label>
+					<label className="label-input">Título</label>
 					<textarea name="titulo" className="input" required />
 				</div>
 				<div className="input-couple">
-					<label className="label-input">Descripcion</label>
+					<label className="label-input">Descripción</label>
 					<textarea name="descripcion" className="input" required />
 				</div>
 				<JustTicket />
 				<button className="button" type="submit">
-					enviar
+					Enviar
 				</button>
 			</div>
 		</form>

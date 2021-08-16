@@ -38,7 +38,7 @@ export const Login = ({ action, onmounted, onunmounted }) => {
 			}
 		} else {
 			alert(
-				"El correo y/o la contraseña son demasiado cortos, ingrese datos validos"
+				"El correo y/o la contraseña son demasiado cortos, ingrese datos válidos"
 			);
 		}
 		inputPassword.value = "";
@@ -50,7 +50,7 @@ export const Login = ({ action, onmounted, onunmounted }) => {
 					<h1>Ingreso</h1>
 				</div>
 				<div className="input-couple">
-					<label className="label-input">Correo electronico</label>
+					<label className="label-input">Correo electrónico</label>
 					<input
 						type="email"
 						name="correo"
@@ -69,10 +69,10 @@ export const Login = ({ action, onmounted, onunmounted }) => {
 						required
 					/>
 				</div>
-				<button className="button">enviar</button>
+				<button className="button">Enviar</button>
 				<Link href="/singup">
 					<div className="link">
-						<h4>No tiene cuenta aun, registrece aqui</h4>
+						<h4>No tiene cuenta aun, regístrese aquí</h4>
 					</div>
 				</Link>
 			</div>

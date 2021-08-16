@@ -60,7 +60,7 @@ export const Singup = ({ action, onmounted, onunmounted}) => {
 				}
 			} else {
 				alert(
-					"El correo y/o la contraseña son demasiado cortos, ingrese datos validos"
+					"El correo y/o la contraseña son demasiado cortos, ingrese datos válidos"
 				);
 			}
 		} else {
@@ -85,7 +85,7 @@ export const Singup = ({ action, onmounted, onunmounted}) => {
 					<h1>Registro</h1>
 				</div>
 				<div className="input-couple">
-					<label className="label-input">Correo electronico</label>
+					<label className="label-input">Correo electrónico</label>
 					<input
 						type="email"
 						name="correo"
@@ -125,7 +125,7 @@ export const Singup = ({ action, onmounted, onunmounted}) => {
 					/>
 				</div>
 				<div className="input-couple">
-					<label className="label-input">Compañia</label>
+					<label className="label-input">Compañía</label>
 					<div className="select ">
 						<select className="input" name="compañia" required>
 							<Companies />
@@ -133,10 +133,10 @@ export const Singup = ({ action, onmounted, onunmounted}) => {
 						<i></i>
 					</div>
 				</div>
-				<button className="button">enviar</button>
+				<button className="button">Enviar</button>
 				<Link href="/login">
 					<div className="link">
-						<h4>Ya tiene una cuenta, ingrese aqui</h4>
+						<h4>Ya tiene una cuenta, ingrese aquí</h4>
 					</div>
 				</Link>
 			</div>
