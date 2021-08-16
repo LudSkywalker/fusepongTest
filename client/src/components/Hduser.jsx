@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { host } from "../keys.json";
 
 export const Hduser = ({ info, title, where, jwt, del }) => {
-	const [_, setLocation] = useLocation();
+	const [, setLocation] = useLocation();
 	const [hdu, setHdu] = useState([]);
 	const deleteHdu = async (id) => {
 		if (confirm("Está seguro que desea eliminar la Historia de Usuario")) {

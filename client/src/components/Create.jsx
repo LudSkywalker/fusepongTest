@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { host } from "../keys.json";
 
 export const Create = ({ info, title, jwt, ticket, where }) => {
-	const [_, setLocation] = useLocation();
+	const [, setLocation] = useLocation();
 	const [hdu, setHdu] = useState([]);
 	useEffect(() => {
 		getHdu();

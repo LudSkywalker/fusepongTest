@@ -14,9 +14,9 @@ export const Routes = ({ useGlass }) => {
 	const [jwt, setJwt] = useState({ token: null });
 	const [user, setUser] = useState({ nombre: "", com: "", id: "" });
 	const [location, _] = useLocation();
-	const [__, ticketsParams] = useRoute("/tickets/:hdUsuario");
-	const [___, editTicketsParams] = useRoute("/edit/ticket/:tickedId");
-	const [____, editHduParams] = useRoute("/edit/hdu/:hduId");
+	const [, ticketsParams] = useRoute("/tickets/:hdUsuario");
+	const [, editTicketsParams] = useRoute("/edit/ticket/:tickedId");
+	const [, editHduParams] = useRoute("/edit/hdu/:hduId");
 	const [glassComplete, glassUncomplete] = useGlass();
 
 	const isLog = async () => {

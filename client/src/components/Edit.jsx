@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { host } from "../keys.json";
 
 export const Edit = ({ info, title, jwt, edit }) => {
-	const [_, setLocation] = useLocation();
+	const [, setLocation] = useLocation();
 	const [data, setData] = useState({});
 	useEffect(async () => {
 		if (edit && jwt) {

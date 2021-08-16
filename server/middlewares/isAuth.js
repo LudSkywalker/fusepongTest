@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 module.exports = async (req, res, next) => {
 	let { authorization } = req.headers;
 	if (authorization) {
-		[_, token] = authorization.split(" ");
+		[, token] = authorization.split(" ");
 		try {
 			let { id, nombre, com } = jwt.verify(
 				token,
